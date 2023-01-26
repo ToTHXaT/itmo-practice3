@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Глоссарий </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+</head>
+<body class="container">
+<div class="col-12">
+    <table data-toggle="table" data-search="true" data-pagination="true" data-locale="ru">
+        <thead>
+        <tr>
+            <th data-sortable="true" data-field="term"> Термин </th>
+            <th data-field="definition"> Определение </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for term in terms.items() %}
+        <tr>
+            <td> {{ term[0] }}</td>
+            <td> {{ term[1] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+<script>
+    $.fn.bootstrapTable.locales["ru-RU"]=$.fn.bootstrapTable.locales.ru={formatCopyRows:()=>"Скопировать строки",formatPrint:()=>"Печать",formatLoadingMessage:()=>"Пожалуйста, подождите, идёт загрузка",formatRecordsPerPage:o=>`${o} записей на страницу`,formatShowingRows:(o,t,a,r)=>void 0!==r&&r>0&&r>a?`Записи с ${o} по ${t} из ${a} (отфильтровано, всего на сервере ${r} записей)`:`Записи с ${o} по ${t} из ${a}`,formatSRPaginationPreText:()=>"предыдущая страница",formatSRPaginationPageText:o=>`перейти к странице ${o}`,formatSRPaginationNextText:()=>"следующая страница",formatDetailPagination:o=>`Загружено ${o} строк`,formatClearSearch:()=>"Очистить фильтры",formatSearch:()=>"Поиск",formatNoMatches:()=>"Ничего не найдено",formatPaginationSwitch:()=>"Скрыть/Показать постраничную навигацию",formatPaginationSwitchDown:()=>"Показать постраничную навигацию",formatPaginationSwitchUp:()=>"Скрыть постраничную навигацию",formatRefresh:()=>"Обновить",formatToggleOn:()=>"Показать записи в виде карточек",formatToggleOff:()=>"Табличный режим просмотра",formatColumns:()=>"Колонки",formatColumnsToggleAll:()=>"Выбрать все",formatFullscreen:()=>"Полноэкранный режим",formatAllRows:()=>"Все",formatAutoRefresh:()=>"Автоматическое обновление",formatExport:()=>"Экспортировать данные",formatJumpTo:()=>"Стр.",formatAdvancedSearch:()=>"Расширенный поиск",formatAdvancedCloseButton:()=>"Закрыть",formatFilterControlSwitch:()=>"Скрыть/Показать панель инструментов",formatFilterControlSwitchHide:()=>"Скрыть панель инструментов",formatFilterControlSwitchShow:()=>"Показать панель инструментов"},$.extend($.fn.bootstrapTable.defaults,$.fn.bootstrapTable.locales["ru-RU"]);
+</script>
+
+</body>
+</html>
